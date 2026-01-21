@@ -47,8 +47,8 @@ or read it from a virtual modem by overriding peripherical api and register os e
 
 ```lua
 {
-  channel: 0 < number < 65535, 
-  replyChannel: 0 < number < 65535,
+  channel: 0 <= number <= 65535, 
+  replyChannel: 0 <= number <= 65535,
   payload: any
 }
 ```
@@ -74,9 +74,9 @@ or read it from a virtual modem by overriding peripherical api and register os e
 
 ```lua
 {
-  id: 0 < number < 4294967295,
-  channel: 0 < number < 65535, 
-  replyChannel: 0 < number < 65535,
+  id: 0 <= number <= 4294967295,
+  channel: 0 <= number <= 65535, 
+  replyChannel: 0 <= number <= 65535,
   payload: any
 }
 ```
