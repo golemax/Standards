@@ -56,8 +56,18 @@ or read it from a virtual modem by overriding peripherical api and register os e
 ## Relay MOR Packet Building
 
 generate from modem.transmit(channel, replyChannel, payload)
-and an an id by ( (last_listened_id or random(0, 2^32)) + random(0, 2^24) ) % 2^32
-because paquet have a following number, but still random, that can loop every 2^8
+note: temporary description here for random mean random(a, b) is a fonction generating a random number between where a is included and b is excluded
+and an an id by ( (last_listened_id + random(0, 2^24) ) % 2^32) or random(0, 2^32)
+it's due to the fact (2^24 * 2^8) = 2^32
+so for max identifier increment (2^24) for the random génération, it will take 2^8, so 256 iterations before continue to 0
+this exist for preventing collision while random generation based on last paquet id instead or pure random
+so, identifiers become incremental for a cycle or 2^8 steps minimum, with a 2^24 number preventing double identifier
+Before creating packets, if the program sending the packets is also a listener, it is mandatory to use the identifier of the last packet read
+If the listener has not yet read a packet, it is preferable but not mandatory to wait 1 second to receive at least 1 packet
+if a packet is received, it is not necessary to wait until the end of the second
+if after the second, still no packet is received, the full random generation can be used instead
+if the packet sender is not a listener, it can ask an external listener
+If no active listener is available, the package creator should not use any registered identifier
 transmit it on frequency 1000
 
 ## Relay MOR Packet Listening
