@@ -10,10 +10,9 @@
 
 This standard only apply for the addon of CC:Tweaked named "Classic Peripherals" by AlexDevs.
 
-Due to `Ender Modem Nerfing`, distance be a problems for wireless transmissions.
+Due to `Ender Modem Nerfing`, distance become a problems for wireless transmissions.
 
-A radio feature is added with this addon, than extend the transmissions range to 3072 blocks.
-
+A radio feature is added with this addon, than extend the transmissions range to 3072 blocks.\
 But radio is a differente interface than modems, and use it on existing code require to rewrite a large part if old code.
 
 ## Basic theory
@@ -22,14 +21,11 @@ But radio is a differente interface than modems, and use it on existing code req
 
 > A radio tower is a radio station capable or transmiting messages to other radio tower
 
-Like modems, radio towers can have a feature like port named "frequency", but in contrary at modems, radio tower can only open one at a time, making impossible to read multiple frequency at the same time with one radio tower.
-
+Like modems, radio towers can have a feature like port named "frequency", but in contrary at modems, radio tower can only open one at a time, making impossible to read multiple frequency at the same time with one radio tower.\
 An answer to this problem is to encapsulate packet data, input and output port on table, this is the `Simple MOR Packet`.
 
-But even radio have a limited range, so to cover the largest possible surface, relays can be used.
-
-But radio don't choose the destination radio station, every messages are brodcasted to every close enought radio station, like modems, and packets are not protected from echo between radio towers.
-
+But even radio have a limited range, so to cover the largest possible surface, relays can be used.\
+Also, radio don't choose the destination radio station, every messages are brodcasted to every close enought radio station, like modems, and packets are not protected from echo between radio towers.\
 An answer is to identify every paquets by an identifier, and store this identifier for an arbitrary time, this is the `Relay MOR Packet`.
 
 ## Simple MOR Packet Building
